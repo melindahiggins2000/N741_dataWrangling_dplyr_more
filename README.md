@@ -1,9 +1,11 @@
 ## N741 Data Wrangling Exercises - learning dplyr and other tidyverse packages
 
-#### add section
+#### Files for today's exercises
 
-* b1
-* b2
-* b3
+* Webpage with code, output and explanations, []()
+* Rmarkdown file [RMD]()
+* Printable(PDF) with code, output and explanations [PDF]()
+
+
 
 

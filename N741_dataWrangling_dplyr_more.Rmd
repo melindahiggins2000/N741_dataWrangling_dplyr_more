@@ -9,6 +9,30 @@ editor_options:
   chunk_output_type: console
 ---
 
+## R Packages needed for this Rmarkdown and exercises for today
+
+* [`rmarkdown`](https://rmarkdown.rstudio.com/)
+* [`knitr`](https://yihui.org/knitr/)
+* [`printr`](https://yihui.org/printr/)
+* [`carData`](https://cran.r-project.org/web/packages/carData/index.html)
+* [`dplyr`](https://dplyr.tidyverse.org/) - see _note_ 
+* [`tibble`](https://tibble.tidyverse.org/) - see _note_
+* [`ggpubr`](https://rpkgs.datanovia.com/ggpubr/)
+* [`rstatix`](https://rpkgs.datanovia.com/rstatix/)
+* OPTIONAL [`tidyverse`](https://www.tidyverse.org/) - see _note_
+
+_NOTE: The `dplyr` and `tibble` packages are all part of the ["CORE Tidyverse"](https://www.tidyverse.org/), so you can also simply load the tidyverse package. So, when you load `library(tidyverse)`, you simultaneously load ALL of these core packages:_
+
+* `ggplot2`
+* `tibble`
+* `tidyr`
+* `readr`
+* `purrr`
+* `dplyr`
+* `stringr`
+* `forcats`
+
+
 ```{r setup, include=FALSE}
 # setup knitr chunk options
 # echo = TRUE will show code in chunks
@@ -92,12 +116,16 @@ Let's try out the `ggpubr` package and use the `ggdensity()` function.
 
 Learn more at [https://rpkgs.datanovia.com/ggpubr/](https://rpkgs.datanovia.com/ggpubr/).
 
+_NOTE: Try custom colors with hex colors, [https://www.colorbook.io/hexcolors/view/00AFBB](https://www.colorbook.io/hexcolors/view/00AFBB)._
+
 ```{r}
+# try custom colors using hex codes
+# see https://www.colorbook.io/hexcolors/view/00AFBB 
 library(ggpubr)
 ggdensity(Davis2, x = "bmi",
    add = "mean", rug = TRUE,
    color = "sex", fill = "sex",
-   palette = c("magenta", "light blue"))
+   palette = c("#D689E8", "#00AFBB"))
 ```
 
 Well this looks odd. I'm guessing there is an outlier somewhere. We could open the data and look at it in a viewer, but let's try to do it with code.
@@ -123,7 +151,7 @@ Davis3 <- Davis2 %>%
 ggdensity(Davis3, x = "bmi",
    add = "mean", rug = TRUE,
    color = "sex", fill = "sex",
-   palette = c("magenta", "light blue")) +
+   palette = c("#D689E8", "#00AFBB")) +
   ggtitle("BMI from Measured Weight and Height")
 ```
 
@@ -188,7 +216,7 @@ Let's keep using the `ggpubr` package and try the `ggboxplot()` function and add
 ```{r}
 ggboxplot(Davis3, x = "sex", y = "diff_wt_repwt",
                 color = "sex", 
-                palette =c("magenta", "blue"),
+                palette =c("#D689E8", "#00AFBB"),
                 add = "jitter", shape = "sex") +
   geom_hline(yintercept = 0, color = "red") +
   labs(title = "Difference in Weights = weight - repwt",
@@ -205,7 +233,7 @@ Let's take a look at the differences in the heights.
 ```{r}
 ggboxplot(Davis3, x = "sex", y = "diff_ht_repht",
                 color = "sex", 
-                palette =c("magenta", "blue"),
+                palette =c("#D689E8", "#00AFBB"),
                 add = "jitter", shape = "sex") +
   geom_hline(yintercept = 0, color = "red") +
   labs(title = "Difference in Heights = height - repht",
