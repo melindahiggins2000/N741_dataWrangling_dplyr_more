@@ -1,3 +1,9 @@
-# N741_dataWrangling_dplyr_tidyr
+## N741 Data Wrangling Exercises - learning dplyr and other tidyverse packages
 
-N741 Data Wrangling Exercises - learning dplyr and tidyr
+#### add section
+
+* b1
+* b2
+* b3
+
+
