@@ -3,8 +3,8 @@ title: "N741 - Data Wrangling - learning dplyr and more tidyverse packages"
 author: "Melinda Higgins"
 date: "2/1/2022"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 editor_options:
   chunk_output_type: console
 ---
@@ -109,6 +109,8 @@ Davis2 <- Davis %>%
   mutate(height_m = height/100) %>%
   mutate(bmi = weight / ((height_m)^2))
 ```
+
+add some text
 
 ## BMI histograms by `sex`
 
